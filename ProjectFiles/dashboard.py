@@ -60,7 +60,11 @@ fig2 = px.line(df, x="Time (s)", y = data_names[2]) #Temp (C)
 fig3 = px.line(df, x="Time (s)", y = data_names[1]) #Blood Flow (ml/s)
 
 app.layout = html.Div(style={'backgroundColor': colors['background']},children=[
-    html.H1(children='Cardiopulmonary Bypass Dashboard'),
+    html.H1(children='Cardiopulmonary Bypass Dashboard', style={
+    'textAlign': 'center',
+    }), 
+        
+
 
     html.Div(children=''' Hier könnten Informationen zum Patienten stehen...''', style={
         'textAlign': 'center',
