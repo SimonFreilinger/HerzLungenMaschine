@@ -20,8 +20,9 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 app = Dash(__name__, external_stylesheets=external_stylesheets)
 
 colors = {
-    'background': '#FAEBD7',
-    'text': '#000000'
+    'background': '#C9F3E7',
+    'text': '#000000',
+    'text2': '#707070'
 }
 
 list_of_subjects = []
@@ -63,7 +64,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background']},children=[
 
     html.Div(children=''' Hier könnten Informationen zum Patienten stehen...''', style={
         'textAlign': 'center',
-        'color': colors['text']
+        'color': colors['text2']
      }),
 
     dcc.Checklist(
@@ -96,13 +97,26 @@ app.layout = html.Div(style={'backgroundColor': colors['background']},children=[
 
     ], className='row'),
 
+
     html.Div([
+       html.Div([
             dcc.Graph(
                  id='dash-graph2',
-                 figure=fig2,
-                 style={"margin-top": "50px"}
+                 figure=fig2
             ),
-       ], className='row'),
+       ], className='six columns'),
+
+       html.Div([
+            dcc.Graph(
+                 id='dash-graph3',
+                 figure=fig3
+            ),
+       ], className='six columns'),
+
+    ], className='row'),
+
+
+ 
         
 
     dcc.Checklist(
@@ -118,10 +132,6 @@ app.layout = html.Div(style={'backgroundColor': colors['background']},children=[
         style={"width": "100%", 'height': "auto"}
     ),
     
-    dcc.Graph(
-        id='dash-graph3',
-        figure=fig3
-    )
 ])
 
 
